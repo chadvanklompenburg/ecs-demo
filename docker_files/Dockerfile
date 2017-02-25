@@ -5,4 +5,4 @@ COPY index.js /var/node
 COPY package.json /var/node
 WORKDIR /var/node
 RUN npm install
-CMD ["npm","start"]
+ENTRYPOINT ["npm", "start"]

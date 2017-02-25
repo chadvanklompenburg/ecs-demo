@@ -12,3 +12,4 @@ docker run -ti ecs-demo
 docker run -p 3000:3000 -ti ecs-demo
 # docker ps --filter "status=exited" --format "{{.ID}}\t{{.Image}}\t{{.CreatedAt}}
 docker ps --filter "status=exited" --format "{{.ID}}\t{{.Image}}\t{{.CreatedAt}}" | awk '{ print $1 }' | xargs docker rm
+ssh -i ~/.ssh/home-machine ec2-user@52.204.191.197
