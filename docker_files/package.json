@@ -1,0 +1,14 @@
+{
+  "name": "docker_files",
+  "version": "1.0.0",
+  "description": "Docker image files",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Chad Van Klompenburg",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
