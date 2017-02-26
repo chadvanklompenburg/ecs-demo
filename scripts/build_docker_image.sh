@@ -2,8 +2,8 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 NOW=$(date +"%Y-%m-%d-%H-%M-%S")
-TAG=$NOW
 REPOSITORY="474134703240.dkr.ecr.us-east-1.amazonaws.com/ecs-demo"
+TAG="${REPOSITORY}:ecs-demo_${NOW}"
 
 show_menu(){
     PS3="What you want me do? : "
@@ -11,12 +11,12 @@ show_menu(){
     select opt in "${options[@]}"; do
         case $opt in
             "Build Image")
-                (cd $DIR/../image && docker build -t ecs-demo .)
+                (cd $DIR/../image && docker build -t $TAG .)
                 break
                 ;;
             "Push Image")
                 (aws ecr get-login --region $AWS_REGION | bash)
-                (docker push $REPOSITORY:$TAG)
+                (docker push $TAG)
                 break
                 ;;
             "Quit")
