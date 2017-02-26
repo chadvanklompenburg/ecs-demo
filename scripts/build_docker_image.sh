@@ -1,6 +1,33 @@
 #!/usr/bin/env bash
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-(
-    cd $DIR/../docker_files
-    docker build -t ecs-demo .
-)
+NOW=$(date +"%Y-%m-%d-%H-%M-%S")
+TAG=$NOW
+REPOSITORY="474134703240.dkr.ecr.us-east-1.amazonaws.com/ecs-demo"
+
+show_menu(){
+    PS3="What you want me do? : "
+    options=("Build Image" "Push Image" "Quit")
+    select opt in "${options[@]}"; do
+        case $opt in
+            "Build Image")
+                (cd $DIR/../image && docker build -t ecs-demo .)
+                break
+                ;;
+            "Push Image")
+                (aws ecr get-login --region $AWS_REGION | bash)
+                (docker push $REPOSITORY:$TAG)
+            "Quit")
+                exit
+                ;;
+        esac
+    done
+}
+
+while true; do
+    show_menu
+done
+# (
+#     cd $DIR/../docker_files
+#     docker build -t ecs-demo .
+# )
