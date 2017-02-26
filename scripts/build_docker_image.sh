@@ -4,6 +4,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 NOW=$(date +"%Y-%m-%d-%H-%M-%S")
 REPOSITORY="474134703240.dkr.ecr.us-east-1.amazonaws.com/ecs-demo"
 TAG="${REPOSITORY}:ecs-demo_${NOW}"
+AWS_REGION="us-east-1"
 
 show_menu(){
     PS3="What you want me do? : "
