@@ -17,6 +17,8 @@ show_menu(){
             "Push Image")
                 (aws ecr get-login --region $AWS_REGION | bash)
                 (docker push $REPOSITORY:$TAG)
+                break
+                ;;
             "Quit")
                 exit
                 ;;
