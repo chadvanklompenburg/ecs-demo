@@ -22,6 +22,7 @@ show_menu(){
                 (
                     TAG=$(generate_tag)
                     cd $DIR/../image && docker build -t $TAG .
+                    echo "Pushing: ${TAG}"
                     aws ecr get-login | bash
                     docker push $TAG
                 )
@@ -31,6 +32,7 @@ show_menu(){
                 (
                     TAG=$(generate_tag2)
                     cd $DIR/../image && docker build -t $TAG -f Dockerfile2 .
+                    echo "Pushing: ${TAG}"
                     aws ecr get-login | bash
                     docker push $TAG
                 )
