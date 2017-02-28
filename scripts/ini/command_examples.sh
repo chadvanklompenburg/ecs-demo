@@ -13,3 +13,6 @@
 # docker ps --filter "status=exited" --format "{{.ID}}\t{{.Image}}\t{{.CreatedAt}}
 # docker ps --filter "status=exited" --format "{{.ID}}\t{{.Image}}\t{{.CreatedAt}}" | awk '{ print $1 }' | xargs docker rm
 # ssh -i ~/.ssh/home-machine ec2-user@52.204.191.197
+# docker images --format "{{.ID}}" | xargs docker rmi -f
+# docker images --format "{{.Repository}}:{{.Tag}}"
+# docker pull [OPTIONS] NAME[:TAG|@DIGEST]
