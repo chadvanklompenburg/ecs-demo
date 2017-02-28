@@ -1,6 +1,5 @@
-#!/usr/bin/env bash
-#docker search node --filter "is-official=true" --filter "stars=10"
-./parse_tags.js --url='https://registry.hub.docker.com/v2/repositories/library/node/tags/'
+# docker search node --filter "is-official=true" --filter "stars=10"
+# ./parse_tags.js --url='https://registry.hub.docker.com/v2/repositories/library/node/tags/'
 # URL: https://hub.docker.com/_/node/
 # docker pull node:7.6.0
 # docker images
