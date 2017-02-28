@@ -2,7 +2,7 @@ var express = require('express')
 var app = express()
 
 app.get('/', function (req, res) {
-  res.send('Hello World from index.js')
+  res.send('Hello World from index2.js')
 })
 
 app.listen(3000, function () {
