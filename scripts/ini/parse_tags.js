@@ -30,7 +30,6 @@ const getRequestPromise = (url) => {
             return getRequestPromise(response.next)
                 .then((nextResults) => {
                     const totalResults = response.results.concat(nextResults);
-                    //console.log(`r-length: ${response.results.length} nr-length: ${nextResults.length}`)
                     return totalResults;
                 });
         }
